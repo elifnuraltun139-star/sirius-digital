@@ -29,15 +29,84 @@
             line-height: 1.6;
         }
 
-        .hero {
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background: rgba(8, 8, 8, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links button:hover, .nav-links button.active {
+            color: var(--text-main);
+        }
+
+        /* Sayfa İçerik Yapısı */
+        .page-section {
+            display: none;
             min-height: 100vh;
+            padding: 8rem 2rem 4rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero / Anasayfa */
+        .hero-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 4rem 2rem;
             text-align: center;
-            position: relative;
+            min-height: 70vh;
         }
 
         .star-icon {
@@ -65,16 +134,15 @@
             text-transform: uppercase;
             letter-spacing: 0.4em;
             color: var(--text-muted);
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
+        /* Grid Kartlar & Fiyatlar */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            max-width: 1100px;
-            width: 100%;
-            margin-bottom: 4rem;
+            margin-top: 2rem;
         }
 
         .card {
@@ -85,6 +153,8 @@
             backdrop-filter: blur(10px);
             transition: border-color 0.3s ease, transform 0.3s ease;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .card.featured {
@@ -116,7 +186,26 @@
             font-size: 0.92rem;
             color: var(--text-muted);
             line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .features-list {
+            list-style: none;
             margin-bottom: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .features-list li {
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .features-list li::before {
+            content: "—";
+            color: var(--text-main);
         }
 
         .price-box {
@@ -151,34 +240,35 @@
             color: var(--text-main);
         }
 
-        .section-container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-            border-top: 1px solid var(--card-border);
-        }
-
         .section-title {
             font-size: 1.5rem;
             font-weight: 500;
             letter-spacing: 0.2em;
             text-transform: uppercase;
+            margin-bottom: 2.5rem;
             text-align: center;
-            margin-bottom: 3rem;
         }
 
+        .note-text {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Süreç Adımları */
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
 
         .step-item {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            padding: 2rem;
-            text-align: center;
+            padding: 2.5rem 2rem;
         }
 
         .step-item h4 {
@@ -192,6 +282,30 @@
             color: var(--text-muted);
         }
 
+        /* İletişim / Portfolyo */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-info a {
+            color: var(--text-main);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text-main);
+            font-weight: 500;
+        }
+
+        /* Butonlar */
         .btn {
             display: inline-block;
             padding: 1rem 3rem;
@@ -203,6 +317,7 @@
             letter-spacing: 0.3em;
             text-transform: uppercase;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -210,87 +325,184 @@
             color: var(--bg-color);
         }
 
+        /* Footer */
         footer {
             text-align: center;
-            padding: 3rem;
+            padding: 2.5rem;
             font-size: 0.8rem;
             color: var(--text-muted);
             letter-spacing: 0.1em;
             border-top: 1px solid var(--card-border);
+            margin-top: 4rem;
+        }
+
+        @media(max-width: 768px) {
+            header { padding: 1.2rem 1.5rem; }
+            .nav-links { gap: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <div class="star-icon">✦</div>
-        <h1>Sirius Dijital</h1>
-        <p class="subtitle">E-Ticaret Altyapıları & Stratejik Dijital Çözümler</p>
+    <!-- Üst Menü (Navbar) -->
+    <header>
+        <a class="logo" onclick="switchPage('home')">✦ Sirius Dijital</a>
+        <ul class="nav-links">
+            <li><button onclick="switchPage('home')" id="nav-home" class="active">Ana Sayfa</button></li>
+            <li><button onclick="switchPage('services')" id="nav-services">Hizmetler & Fiyatlar</button></li>
+            <li><button onclick="switchPage('portfolio')" id="nav-portfolio">Referanslar</button></li>
+            <li><button onclick="switchPage('workflow')" id="nav-workflow">Süreç</button></li>
+            <li><button onclick="switchPage('contact')" id="nav-contact">İletişim</button></li>
+        </ul>
+    </header>
 
+    <!-- 1. ANA SAYFA -->
+    <section id="page-home" class="page-section active">
+        <div class="hero-content">
+            <div class="star-icon">✦</div>
+            <h1>Sirius Dijital</h1>
+            <p class="subtitle">E-Ticaret Altyapıları & Stratejik Dijital Çözümler</p>
+            <p style="color: var(--text-muted); max-width: 600px; margin-bottom: 3rem; font-size: 0.95rem;">
+                Markanızı dijital dünyada öne çıkaran, performans ve hız odaklı özel web çözümleri ve yönetim hizmetleri sunuyoruz.
+            </p>
+            <button class="btn" onclick="switchPage('services')">Hizmetleri İncele</button>
+        </div>
+    </section>
+
+    <!-- 2. HİZMETLER & FİYATLAR -->
+    <section id="page-services" class="page-section">
+        <h2 class="section-title">Hizmetler & Yatırım Paketleri</h2>
         <div class="grid">
-            <!-- Paket 1 -->
             <div class="card">
                 <span class="card-number">01 / E-TİCARET</span>
                 <h3>Özel Altyapı & Tasarım</h3>
-                <p>Standart şablonlardan uzak; mobil uyumlu, yüksek dönüşüm odaklı ve kusursuz e-ticaret siteleri inşa ediyoruz.</p>
+                <p>İşletmenizi dijitalde satışa hazır hale getiren kusursuz e-ticaret siteleri.</p>
+                <ul class="features-list">
+                    <li>WordPress / E-Ticaret Altyapısı</li>
+                    <li>Mobil Uyumlu Modern Tasarım</li>
+                    <li>Ödeme Sistemleri & Kargo Entegrasyonu</li>
+                    <li>Müşteri isteğine göre özelleştirilebilir yapı</li>
+                </ul>
                 <div class="price-box">
                     <div class="old-price">25.000 ₺</div>
                     <div class="price-tag">20.000 ₺</div>
                 </div>
             </div>
 
-            <!-- Paket 2 -->
             <div class="card">
                 <span class="card-number">02 / REKLAM</span>
                 <h3>Sosyal Medya & Reklam</h3>
-                <p>Markanızı doğru kitleyle buluşturan, satış odaklı sosyal medya ve reklam kampanyalarını profesyonelce yönetiyoruz.</p>
+                <p>Markanızı doğru kitleyle buluşturan, dönüşüm odaklı kampanya yönetimi.</p>
+                <ul class="features-list">
+                    <li>Meta (Instagram / Facebook) Reklamları</li>
+                    <li>Strateji ve Düzenli Kampanya Yönetimi</li>
+                    <li>Performans Takibi ve Optimizasyon</li>
+                    <li>Esnek içerik ve planlama desteği</li>
+                </ul>
                 <div class="price-box">
                     <div class="old-price">13.000 ₺ / Ay</div>
                     <div class="price-tag">9.000 ₺ / Ay</div>
                 </div>
             </div>
 
-            <!-- Paket 3 (Öne Çıkan / Full Paket) -->
             <div class="card featured">
                 <span class="badge">LANSMAN ÖZEL</span>
                 <span class="card-number">03 / FULL PAKET</span>
                 <h3>E-Ticaret + Reklam</h3>
-                <p>Hem kusursuz e-ticaret altyapınızı kuruyor hem de dijital reklam yönetimini üstlenerek markanızı zirveye taşıyoruz.</p>
+                <p>Altyapınızı kuruyor, reklam yönetimini üstlenerek markanızı büyüütüyoruz.</p>
+                <ul class="features-list">
+                    <li>E-Ticaret Altyapı Kurulumu Dahil</li>
+                    <li>1 Aylık Profesyonel Reklam Yönetimi</li>
+                    <li>Öncelikli Teknik Destek</li>
+                    <li>İsteklerinize göre özel esnek çözümler</li>
+                </ul>
                 <div class="price-box">
                     <div class="old-price">35.000 ₺</div>
                     <div class="price-tag">25.000 ₺</div>
                 </div>
             </div>
         </div>
-
-        <a href="mailto:iletisim@siriusdijital.com" class="btn">Projeyi Başlat</a>
+        <p class="note-text">* Kapsamlar, projelerin büyüklüğüne ve özel taleplerinize göre esnetilebilir.</p>
     </section>
 
-    <div class="section-container">
+    <!-- 3. REFERANSLAR -->
+    <section id="page-portfolio" class="page-section">
+        <h2 class="section-title">Referanslar & Projeler</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="card-number">PROJE 01 / E-TİCARET</span>
+                <h3>E-Ticaret Platformu</h3>
+                <p>WordPress ve Astra teması kullanılarak, kategori yapıları, vergi sınıfları ve ödeme entegrasyonları sıfırdan kurulan dinamik e-ticaret projesi.</p>
+                <div style="margin-top: auto; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.1em;">
+                    Kapsam: Web Geliştirme & Altyapı
+                </div>
+            </div>
+            <div class="card">
+                <span class="card-number">PROJE 02 / DİJİTAL</span>
+                <h3>Kurumsal Çözümler</h3>
+                <p>Çeşitli ölçeklerdeki markalar için gerçekleştirilen arayüz düzenlemeleri ve dijital operasyon danışmanlıkları.</p>
+                <div style="margin-top: auto; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.1em;">
+                    Kapsam: Strateji & Tasarım
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ÇALIŞMA SÜRECİ -->
+    <section id="page-workflow" class="page-section">
         <h2 class="section-title">Çalışma Süreci</h2>
         <div class="steps-grid">
             <div class="step-item">
                 <h4>01. Analiz</h4>
-                <p>İhtiyaçlarınızı dinliyor, markanıza en uygun dijital stratejiyi belirliyoruz.</p>
+                <p>İhtiyaçlarınızı dinliyor, projenize en uygun yol haritasını belirliyoruz.</p>
             </div>
             <div class="step-item">
                 <h4>02. Tasarım</h4>
-                <p>Minimalist, lüks ve yüksek hız odaklı arayüzleri hayata geçiriyoruz.</p>
+                <p>Hızlı, işlevsel ve minimalist arayüzleri hayata geçiriyoruz.</p>
             </div>
             <div class="step-item">
-                <h4>03. Test & Entegrasyon</h4>
-                <p>Ödeme sistemleri, kargo ve altyapı testlerini tamamlıyoruz.</p>
+                <h4>03. Test</h4>
+                <p>Ödeme, kargo ve altyapı bileşenlerini eksiksiz test ediyoruz.</p>
             </div>
             <div class="step-item">
                 <h4>04. Lansman</h4>
-                <p>Sitenizi yayına alıyor, satışa ve büyümeye hazır hale getiriyoruz.</p>
+                <p>Projenizi yayına alarak dijital dünyada aktif hale getiriyoruz.</p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- 5. İLETİŞİM -->
+    <section id="page-contact" class="page-section">
+        <h2 class="section-title">İletişim</h2>
+        <div class="contact-container">
+            <div class="contact-info" style="margin-bottom: 2rem;">
+                <p style="margin-bottom: 1rem;">Doğrudan iletişime geçmek için:</p>
+                <p style="margin-bottom: 0.5rem;">Telefon: <a href="tel:+905555555555">+90 (555) 555 55 55</a></p>
+                <p>E-posta: <a href="mailto:iletisim@siriusdijital.com">iletisim@siriusdijital.com</a></p>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Proje detaylarını görüşmek için her zaman arayabilir veya yazabilirsiniz.</p>
+        </div>
+    </section>
 
     <footer>
         &copy; 2026 Sirius Dijital. Tüm hakları saklıdır.
     </footer>
 
+    <script>
+        function switchPage(pageId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            document.getElementById('page-' + pageId).classList.add('active');
+
+            const navButtons = document.querySelectorAll('.nav-links button');
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            
+            const activeNav = document.getElementById('nav-' + pageId);
+            if(activeNav) activeNav.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
