@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sirius Dijital | E-Ticaret & Reklam Yönetimi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050507;
+            --text-main: #ffffff;
+            --text-muted: #9a9aa0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .universe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 50% 30%, #11111a 0%, var(--bg-deep) 80%);
+            z-index: -2;
+        }
+
+        /* Arka planı kaplayan devasa şık yazı */
+        .bg-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Cinzel', serif;
+            font-size: 16vw;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.025);
+            white-space: nowrap;
+            z-index: -1;
+            user-select: none;
+            letter-spacing: 0.1em;
+            pointer-events: none;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .brand-box {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Dev 10 Kat Büyütülmüş Orijinal Sirius Yıldızı */
+        .sirius-giant-star {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 1.2rem;
+            filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.6));
+            animation: pulse-star 4s infinite alternate;
+        }
+
+        .sirius-giant-star svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes pulse-star {
+            0% { transform: scale(0.95); opacity: 0.85; }
+            100% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .brand-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2rem;
+            letter-spacing: 0.35em;
+            color: var(--text-main);
+            text-transform: uppercase;
+            font-weight: 400;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            margin-left: 0.35em;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            letter-spacing: 0.5em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 3.5rem;
+            font-weight: 300;
+            animation: fadeIn 2.4s ease-out;
+        }
+
+        .services-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            animation: fadeIn 2.6s ease-out;
+        }
+
+        .service-card {
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 1.8rem 2.2rem;
+            background: rgba(255, 255, 255, 0.025);
+            backdrop-filter: blur(10px);
+            max-width: 380px;
+            text-align: left;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.06);
+        }
+
+        .service-title {
+            font-family: 'Cinzel', serif;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.1em;
+            font-weight: 400;
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .elite-btn {
+            display: inline-block;
+            padding: 1.1rem 3.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--text-main);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.8rem;
+            font-weight: 400;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            animation: fadeIn 3s ease-out;
+        }
+
+        .elite-btn:hover {
+            background: #ffffff;
+            color: var(--bg-deep);
+            border-color: #ffffff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .brand-title { font-size: 2rem; letter-spacing: 0.25em; }
+            .bg-watermark { font-size: 22vw; }
+            .sirius-giant-star { width: 100px; height: 100px; }
+            .tagline { font-size: 0.7rem; letter-spacing: 0.3em; }
+            .services-grid { gap: 1rem; padding: 0 1rem; }
+            .service-card { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="universe"></div>
+    <div class="bg-watermark">SİRİUS</div>
+
+    <div class="container">
+        <!-- 10 Kat Büyütülmüş İhtişamlı Beyaz Sirius Yıldızı ve Başlık -->
+        <div class="brand-box">
+            <div class="sirius-giant-star">
+                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 0C100 55 55 100 0 100C55 100 100 145 100 200C100 145 145 100 200 100C145 100 100 55 100 0Z" fill="#FFFFFF"/>
+                </svg>
+            </div>
+            <h1 class="brand-title">SiRiUS DİJİTAL</h1>
+        </div>
+
+        <p class="tagline">E-Ticaret Altyapıları & Stratejik Reklam Yönetimi</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3 class="service-title">01 / E-Ticaret Çözümleri</h3>
+                <p class="service-desc">Standart şablonlardan uzak; mobil uyumlu, yüksek dönüşüm odaklı ve kusursuz e-ticaret siteleri inşa ediyoruz.</p>
+            </div>
+            <div class="service-card">
+                <h3 class="service-title">02 / Reklam & İçerik</h3>
+                <p class="service-desc">Markanızı doğru kitleyle buluşturan, satış odaklı sosyal medya ve reklam kampanyalarını profesyonelce yönetiyoruz.</p>
+            </div>
+        </div>
+
+        <a href="#iletisim" class="elite-btn">Projeyi Başlat</a>
+    </div>
+
+</body>
+</html>
